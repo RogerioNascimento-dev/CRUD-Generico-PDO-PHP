@@ -1,12 +1,10 @@
 <?php
-/*														*/
-
-# Autor: 			Rogério de Oliveira Nascimento       #
-# E-mail: 			rogerionascimento.dev@outlook.com.br #
-# Data:				05/07/2018                           #
-# Versão do php:	7.1.3                                #
-
-/*														*/
+/*															*/
+# Autor: 			Rogério de Oliveira Nascimento       	#
+# E-mail: 			rogerionascimento.dev@outlook.com.br 	#
+# Data:				05/07/2018                           	#
+# Versão do php:	7.1.3                                	#
+/*															*/
 
 abstract class DB{
 	
