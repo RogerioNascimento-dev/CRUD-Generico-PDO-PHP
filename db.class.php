@@ -3,7 +3,7 @@
 # Autor: 			Rogério de Oliveira Nascimento       	#
 # E-mail: 			rogerionascimento.dev@outlook.com.br 	#
 # Data:				05/07/2018                           	#
-# Versão do php:	7.1.3                                	#
+# Versão do php:	7.1.3                                	        #
 /*															*/
 
 abstract class DB{
@@ -41,7 +41,7 @@ abstract class DB{
 
 		foreach ($data as $field => $value) {
 
-			$fields[] = $field;                 //array somente com os campos
+		    $fields[] = $field;                 //array somente com os campos
 		    $fields_up .= $field.' = '.'?, ';   //strnng pronta com os campos para Update 
 		    $values[] = $value;                 //array somente com os valores
 		    $question ++;                       //contador para repetir ?, no INSERT   
@@ -50,13 +50,13 @@ abstract class DB{
 
 		if($id == '0' || $id == ''){
 		    #Monta query de insert caso não tenha passado um id.
-			$fields_insert   = implode(", ", $fields); //string com os campos para o insert  
+		    $fields_insert   = implode(", ", $fields); //string com os campos para o insert  
 		    $question = substr(str_repeat('?,', $question),0,-1);//repete a quantidade de interrogação necessária para o insert
 		    $sql = "INSERT INTO ".$table." (".$fields_insert.") VALUES (".$question.")";     
 
 		}else{
 
-			#Monta query de update caso seja passado um id.			
+		    #Monta query de update caso seja passado um id.			
 		    $values[] = $id;
 		    $sql = "UPDATE ".$table." SET ".substr($fields_up,0,-2)." WHERE id = ?";
 
@@ -69,7 +69,7 @@ abstract class DB{
 	   
 	   	if($ret){
 
-	   		$return['error_number'] 	= 0;
+	   	$return['error_number'] 	= 0;
 	    	$return['error_info'] 		= 'Dados salvo com sucesso ás '.date('H:i:s'); 
 	    	$return['affected_rows']	= ($save->rowCount())?$save->rowCount().' linhas afetadas':'Nenhuma linha afetada';
 	    	
@@ -82,7 +82,7 @@ abstract class DB{
 
 	   	}else{
 
-			$return['error_number'] 	= 1;
+		$return['error_number'] 	= 1;
 	    	$return['error_info'] 		= $error[2];   
 
 
