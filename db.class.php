@@ -33,8 +33,8 @@ abstract class DB{
 
 
 	#Função generica de criação e atualização de registros
-	public static function save($db,$table, $data, $id = 0) {
-
+	public static function save($table, $data, $id = 0) {
+		$db 		= self::conect();
 		$fields_up 	= '';
 		$question  	= 0;
 		$return 	= array();
@@ -93,7 +93,8 @@ abstract class DB{
  	}# Fim do método save #
 
 
-	public static function update($db,$table,$data,$ids = '0',$where = '1=1'){
+	public static function update($table,$data,$ids = '0',$where = '1=1'){
+		$db 			= self::conect();
 		$sets			= '';
 		$sets_where		= '';
 		$values 		= array();		
@@ -139,8 +140,8 @@ abstract class DB{
 
 
 
-	public static function delete($db,$table,$ids='',$where='1=1'){
-
+	public static function delete($table,$ids='',$where='1=1'){
+		$db 	= self::conect();
 		$query 	= '';
 		$return	= array();
 
