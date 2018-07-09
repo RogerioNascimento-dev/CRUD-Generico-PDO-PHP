@@ -113,7 +113,7 @@ abstract class DB{
 
 		if($ids){
 			$query 	= "UPDATE ".$table." SET ".$sets." WHERE id IN(".$ids.") AND ".$where;
-		}else if($where != '1=1'){
+		}else if($where != '1=1'){ #Evita um update geral por engano
 			$query 	= "UPDATE ".$table." SET ".$sets." WHERE ".$where;
 		}
 
@@ -147,7 +147,7 @@ abstract class DB{
 
 		if($ids){
 			$query = "DELETE FROM ".$table." WHERE id IN(".$ids.") AND ".$where;
-		}else{
+		}else if($where != '1=1'){ #Evita um delete geral por engano
 			$query = "DELETE FROM ".$table." WHERE ".$where;
 		}
 
