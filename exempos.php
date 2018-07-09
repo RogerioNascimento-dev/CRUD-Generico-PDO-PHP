@@ -5,8 +5,8 @@ require "db.class.php";
 #--|Criando novo registro com o método save da classe|--#
 
 #Definindo e setando os valores no array com os campos e valores que serão salvos na tabela
-$data 				= array();
-$data['name']		= 'Manoel Virgulino da Silva alterado';
+$data 				    = array();
+$data['name']		  = 'Manoel Virgulino da Silva alterado';
 $data['username']	= 'manoelvirgu@gmail.com';
 $data['office']		= 'Analista de Sistemas';
 $data['genre']		= 'M';
@@ -16,7 +16,7 @@ $data['password']	= md5('1111');
 $table = 'cap_users';
 
 #Chamando o método que irá salvar os dados no banco e guardando o retorno na variável $ret #
-//$ret = DB::save($table,$data,6);
+$ret = DB::save($table,$data,6);
 /*
 Observações:
 1 - O nome da posição do array tem que ser identico ao campo na tabela que vc quer setar o valor.
@@ -36,8 +36,8 @@ Observações:
 #--|Atualizando um registro com o método update da classe|--#
 
 #Definindo e setando os valores no array com os campos e valores que serão atualizados na tabela
-$data 				= array();
-$data['name']		= 'Manoel Virgulino da Silva atualizado';
+$data      				= array();
+$data['name']		  = 'Manoel Virgulino da Silva atualizado';
 $data['username']	= 'manoelvirgu@gmail.com';
 $data['office']		= 'Analista de Sistemas alterado';
 $data['genre']		= 'F';
@@ -47,7 +47,7 @@ $data['genre']		= 'F';
 $table = 'cap_users';
 
 #Chamando o método que irá salvar os dados no banco e guardando o retorno na variável $ret #
-//$ret = DB::update($table,$data,'6,5,4', 'genre = "F"');
+$ret = DB::update($table,$data,'6,5,4', 'genre = "F"');
 
 /*
 Observações:
