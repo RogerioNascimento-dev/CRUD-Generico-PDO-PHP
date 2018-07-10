@@ -169,4 +169,38 @@ abstract class DB{
 	}#Fim do método delete
 
 
+
+	public static function read($query,$data,$fetchAll = false){
+
+		$db 	= self::conect();
+		$return	= array();
+
+
+		$rows 	= $db->prepare($query);
+		if($data):
+			$rows->execute($data);
+		else:
+			$rows->execute();
+		endif;
+
+		$error = $rows->errorInfo();
+
+		if($fetchAll){
+			$rows = $rows->fetchAll(PDO::FETCH_ASSOC);
+		}else{
+			$rows = $rows->fetch(PDO::FETCH_ASSOC);
+		}
+
+		if(!$error['2']){
+			$return = $rows;
+		}else{
+			$return['error_number'] = 1;
+			$return['error_info'] 	= $error['2'];
+		}
+
+		return $return;
+
+	}#Fim do método read
+
+
 }#Fim da classe DB

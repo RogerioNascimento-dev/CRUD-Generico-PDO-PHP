@@ -67,7 +67,7 @@ Observações:
 #Definindo tabela que o registro será excluido #
 $table = 'cap_users';
 
-$ret = DB::delete($table,'6,5,4', 'genre = "F"');
+//$ret = DB::delete($table,'6,5,4', 'genre = "F"');
 
 /*
 Observações:
@@ -78,4 +78,19 @@ Observações:
 5 - error_number será 0 em caso de sucesso e 1 em caso de falha
 6 - error_info será "Dados excluidos com sucesso ás (hora atual)" em caso de sucesso e o detalhe do erro em caso de falha.
 7 - affected_rows retorna o numero de linhas afetadas na tabela.
+*/
+
+
+
+
+#--|Select com o método read da classe|--#
+$ret = DB::read('SELECT * FROM cap_users where status = ?',array('1'),true);
+
+/*
+Observações:
+1 - O exemplo acima irá selecionar todos os registros da tabela cap_users que o status = 1
+2 - O primeiro parametro é a consulta passar '?' ao inves dos valores.
+3 - o segundo parametro é um array com os valores que irão subistituir a interrogação no prepare do PDO.
+4 - O terceiro parametro é o fetchALL, passar false se a consulta for tetornar apenas uma linha e true se for retornar multiplas linhas.
+
 */
