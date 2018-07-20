@@ -69,7 +69,7 @@ abstract class DB{
 	   
 	   	if($ret){
 
-	   	$return['error_number'] 	= 0;
+	   		$return['error_number'] 	= 0;
 	    	$return['error_info'] 		= 'Dados salvo com sucesso ás '.date('H:i:s'); 
 	    	$return['affected_rows']	= ($save->rowCount())?$save->rowCount().' linhas afetadas':'Nenhuma linha afetada';
 	    	
